@@ -12,6 +12,7 @@ class MasterModulesTableSeeder extends Seeder
     public function run()
     {
         //
+        \DB::table('master_modules')->delete();
         \DB::table('master_modules')
                 ->insert([
                     'name' => 'Users',

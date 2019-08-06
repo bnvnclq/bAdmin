@@ -19,6 +19,8 @@ class CreateMasterModulesTable extends Migration
             $table->text('description')->nullable();
             $table->string('code', 63);
             $table->integer('parent_id')->nullable();
+            $table->string('icon_class', 127)->default('fa fa-tablet-alt');
+            $table->boolean('is_enable')->default(true);
         });
     }
 

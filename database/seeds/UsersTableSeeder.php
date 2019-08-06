@@ -13,6 +13,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         //
+        \DB::table('users')->delete();
         \DB::table('users')
                 ->insert([
                     'username' => 'admin',

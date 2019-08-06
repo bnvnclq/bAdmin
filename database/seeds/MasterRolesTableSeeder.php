@@ -12,6 +12,7 @@ class MasterRolesTableSeeder extends Seeder
     public function run()
     {
         //
+        \DB::table('master_roles')->delete();
         \DB::table('master_roles')
                 ->insert([
                     'name' => 'Administrator',
