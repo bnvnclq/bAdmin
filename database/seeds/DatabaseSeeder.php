@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(MasterModulesTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(ConfigTableSeeder::class);
+        $this->call(CrefRoleModuleTableSeeder::class);
     }
 }

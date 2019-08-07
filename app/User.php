@@ -49,10 +49,27 @@ class User extends Authenticatable
         }
     }
 
+    /**
+     * Function that returns the list of modules avaiable for a certain user
+     *
+     * @param int $int_id = Role ID to reference all available modules
+     */
+    public function getAllPermission($int_role_id)
+    {
+        return DB::table('cref_role_module AS crm')
+                        ->selectRaw('mm.*')
+                        ->join('master_modules AS mm', 'mm.id', 'crm.module_id')
+                        ->where('crm.role_id', $int_role_id)
+                        ->get();
+    }
+
+    /**
+     * Static functions
+     */
     public static function hasPermission($str_module, $int_role_id)
     {
         $int_count = DB::table('cref_role_module AS crm')
-                        ->join('master_module AS mm', 'mm.id', 'crm.module_id')
+                        ->join('master_modules AS mm', 'mm.id', 'crm.module_id')
                         ->where('crm.role_id', $int_role_id)
                         ->where('mm.code', $str_module)
                         ->count();

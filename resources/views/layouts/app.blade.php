@@ -98,13 +98,13 @@
             Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
         -->
           <div class="logo">
-            <a href="http://www.creative-tim.com" class="simple-text logo-mini">
+            <a href="http://www.bienlaqui.tk" class="simple-text logo-mini">
               <div class="logo-image-small">
                 <img src="../assets/img/logo-small.png">
               </div>
             </a>
-            <a href="http://www.creative-tim.com" class="simple-text logo-normal">
-              Creative Tim
+            <a href="http://www.bienlaqui.tk" class="simple-text logo-normal">
+              {{ config('app.name', 'bAdminPaper') }}
               <!-- <div class="logo-image-big">
                 <img src="../assets/img/logo-big.png">
               </div> -->
@@ -113,53 +113,20 @@
           <div class="sidebar-wrapper">
             <ul class="nav">
               <li class="active ">
-                <a href="./dashboard.html">
-                  <i class="nc-icon nc-bank"></i>
+                <a href="{{ route('home') }}">
+                  <i class="fa fa-th-large"></i>
                   <p>Dashboard</p>
                 </a>
               </li>
-              <li>
-                <a href="./icons.html">
-                  <i class="nc-icon nc-diamond"></i>
-                  <p>Icons</p>
-                </a>
-              </li>
-              <li>
-                <a href="./map.html">
-                  <i class="nc-icon nc-pin-3"></i>
-                  <p>Maps</p>
-                </a>
-              </li>
-              <li>
-                <a href="./notifications.html">
-                  <i class="nc-icon nc-bell-55"></i>
-                  <p>Notifications</p>
-                </a>
-              </li>
-              <li>
-                <a href="./user.html">
-                  <i class="nc-icon nc-single-02"></i>
-                  <p>User Profile</p>
-                </a>
-              </li>
-              <li>
-                <a href="./tables.html">
-                  <i class="nc-icon nc-tile-56"></i>
-                  <p>Table List</p>
-                </a>
-              </li>
-              <li>
-                <a href="./typography.html">
-                  <i class="nc-icon nc-caps-small"></i>
-                  <p>Typography</p>
-                </a>
-              </li>
-              <li class="active-pro">
-                <a href="./upgrade.html">
-                  <i class="nc-icon nc-spaceship"></i>
-                  <p>Upgrade to PRO</p>
-                </a>
-              </li>
+              @foreach ($coll_modules as $module)
+                <li>
+                  <a href="{{ route($module->route_name) }}" title="{{ $module->description }}">
+                    <i class="{{$module->icon_class}}"></i>
+                    <p>{{ $module->name }}</p>
+                  </a>
+                </li>
+              @endforeach
+              
             </ul>
           </div>
         </div>
@@ -175,7 +142,7 @@
                     <span class="navbar-toggler-bar bar3"></span>
                   </button>
                 </div>
-                <a class="navbar-brand" href="#pablo">Paper Dashboard 2</a>
+                <a class="navbar-brand" href="#">@yield('title')</a>
               </div>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -235,6 +202,7 @@
     
     </div> -->
           <div class="content py-4">
+              
                 @yield('content')
             {{-- <div class="row">
               <div class="col-lg-3 col-md-6 col-sm-6">
@@ -414,7 +382,7 @@
                 <nav class="footer-nav">
                   <ul>
                     <li>
-                      <a href="https://www.creative-tim.com" target="_blank">bAdminPaper</a>
+                      <a href="http://www.bienlaqui.tk" target="_blank">bAdminPaper</a>
                     </li>
                     <li>
                       <a href="http://bienlaqui-blog.tk/" target="_blank">Blog</a>
