@@ -1,6 +1,8 @@
 ## About bAdmin
 
-bAdmin is an admin panel template using Laravel + Paper Dashboard by Creative Tim.
+bAdmin is an admin panel template using Laravel (5.8) + Paper Dashboard by Creative Tim. You must know how to use Laravel to use this template properly. [Learn Laravel](https://laravel.com/docs/5.8)
+
+Feel free to upgrade the laravel version yourself. :)
 
 ## About the Developer
 
