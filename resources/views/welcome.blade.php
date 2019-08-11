@@ -4,11 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>bAdmin</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
+        <link href="{{ asset('css/paper-dashboard.css?v=2.0.0') }}" rel="stylesheet">
         <!-- Styles -->
         <style>
             html, body {
@@ -81,17 +82,13 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    bAdminPaper
+                    bAdmin
                 </div>
 
                 <div class="links">
                     <a href="http://www.bienlaqui-blog.tk" target="_blank">Blog</a>
                     <a href="http://www.bienlaqui.tk" target="_blank">About the Dev</a>
-                    {{-- <a href="https://laravel-news.com"></a> --}}
-                    {{-- <a href="https://blog.laravel.com">Blog</a> --}}
-                    {{-- <a href="https://nova.laravel.com">Nova</a> --}}
-                    {{-- <a href="https://forge.laravel.com">Forge</a> --}}
-                    {{-- <a href="https://github.com/laravel/laravel">GitHub</a> --}}
+                    <a href="https://github.com/bnvnclq/badmin">GitHub</a>
                 </div>
             </div>
         </div>

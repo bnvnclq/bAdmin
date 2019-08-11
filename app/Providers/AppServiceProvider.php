@@ -29,12 +29,13 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Schema::defaultStringLength(191);
+        
         view()->composer('*', function ($view) 
         {
             $user = new User();
             $view->with([
                 'coll_modules' => $user->getAllPermission(Auth::user()->role_id),
                 ]);    
-        });  
+        });
     }
 }

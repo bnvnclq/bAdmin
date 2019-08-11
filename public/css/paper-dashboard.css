@@ -5029,6 +5029,10 @@ License - nucleoapp.com/license/
   transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
 }
 
+.main-panel-no-sidebar{
+  width: 100%;
+}
+
 .main-panel>.content {
   padding: 0 30px 30px;
   min-height: calc(100vh - 123px);
@@ -5086,6 +5090,10 @@ License - nucleoapp.com/license/
 
 .footer {
   padding: 24px 0;
+}
+
+.footer-sticky {
+  padding: 0px 0;
 }
 
 .footer.footer-default {
