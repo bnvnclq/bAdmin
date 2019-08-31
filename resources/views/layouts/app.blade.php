@@ -129,12 +129,16 @@
                       </div>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link btn-rotate" href="#pablo">
-                        <i class="nc-icon nc-settings-gear-65"></i>
+                        <form action="{{route('logout')}}" method="POST">
+                            @csrf
+                            <a class="nav-link btn-magnify" href="javascript:void(0);" onclick="$(this).closest('form').submit();">
+                          
+                        <i class="fa fa-power-off"></i>
                         <p>
-                          <span class="d-lg-none d-md-block">Account</span>
+                          <span class="d-lg-none d-md-block">Logout</span>
                         </p>
                       </a>
+                    </form>
                     </li>
                   </ul>
                 </div>
