@@ -19,6 +19,8 @@ class MasterModulesTableSeeder extends Seeder
                     'description' => 'User account management',
                     'code' => 'users',
                     'parent_id' => null,
+                    'icon_class' => 'fa fa-users',
+                    'route_name' => 'users'
                 ]);
         \DB::table('master_modules')
                 ->insert([
@@ -26,6 +28,8 @@ class MasterModulesTableSeeder extends Seeder
                     'description' => 'User add/edit/delete permission',
                     'code' => 'user_update',
                     'parent_id' => '1',
+                    'icon_class' => 'fa fa-users',
+                    'route_name' => 'users'
                 ]);
     }
 }

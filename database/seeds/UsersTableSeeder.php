@@ -22,6 +22,7 @@ class UsersTableSeeder extends Seeder
                     'last_name' => 'Laqui',
                     'first_name' => 'Bien',
                     'role_id' => '1',
+                    'is_enabled' => '1',
                     'created_at' => date('Y-m-d H:i:s')
                 ]);
     }

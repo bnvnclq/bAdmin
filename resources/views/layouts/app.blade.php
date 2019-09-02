@@ -22,7 +22,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'bAdmin') }}</title>
+    <title>{{ config('app.name', 'bAdmin') }} - @yield('title')</title>
 
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 
@@ -33,6 +33,10 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/paper-dashboard.css?v=2.0.0') }}" rel="stylesheet">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    
+    <!-- JQuery -->
+    <script src="{{ asset('js/core/jquery.min.js') }}"></script>
     
 </head>
 <body>
@@ -56,14 +60,14 @@
             </div>
             <div class="sidebar-wrapper">
               <ul class="nav">
-                <li class="active ">
+                <li class="active nav_links" id="nav_dashboard">
                   <a href="{{ route('home') }}">
                     <i class="fa fa-th-large"></i>
                     <p>Dashboard</p>
                   </a>
                 </li>
                 @foreach ($coll_modules as $module)
-                  <li>
+                  <li class="nav_links" id="{{ 'nav_'.$module->code }}">
                     <a href="{{ route($module->route_name) }}" title="{{ $module->description }}">
                       <i class="{{$module->icon_class}}"></i>
                       <p>{{ $module->name }}</p>
@@ -117,15 +121,13 @@
                     </li>
                     <li class="nav-item btn-rotate dropdown">
                       <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="nc-icon nc-bell-55"></i>
+                        <i class="fa fa-cog"></i>
                         <p>
                           <span class="d-lg-none d-md-block">Some Actions</span>
                         </p>
                       </a>
                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">Change Password</a>
                       </div>
                     </li>
                     <li class="nav-item">
@@ -146,23 +148,41 @@
             </nav>
             <!-- End Navbar -->
           @endguest
-          <div class="content py-4">
-			@yield('content')
+          <div class="content p-1">
+            @if (session('message'))
+                <div class="alert alert-primary" role="alert">
+                    {{ session('message') }}
+                </div>
+            @endif
+            
+            @if (session('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
+            
+            @if (session('error'))
+                <div class="alert alert-danger" role="alert">
+                    {{ session('error') }}
+                </div>
+            @endif
+
+            @yield('content')
           </div>
           <footer class="footer footer-black  footer-white ">
             <div class="container-fluid">
               <div class="row">
                 <nav class="footer-nav">
                   <ul>
-					<li>
-						<a href="https://github.com/bnvnclq/bAdmin" target="_blank">bAdmin on Github</a>
-					</li>
-					<li>
-						<a href="http://bienlaqui-blog.tk/" target="_blank">Blog</a>
-					</li>
-					<li>
-						<a href="http://bienlaqui.tk/" target="_blank">About me</a>
-					</li>
+                    <li>
+                      <a href="https://github.com/bnvnclq/bAdmin" target="_blank">bAdmin on Github</a>
+                    </li>
+                    <li>
+                      <a href="http://bienlaqui-blog.tk/" target="_blank">Blog</a>
+                    </li>
+                    <li>
+                      <a href="http://bienlaqui.tk/" target="_blank">About me</a>
+                    </li>
                   </ul>
                 </nav>
                 <div class="credits ml-auto">
@@ -179,7 +199,13 @@
         </div>
       </div>
     <!--   Core JS Files   -->
-    <script src="{{ asset('js/core/jquery.min.js') }}"></script>
+    <script>
+      // ARRAY of module variables
+      @if (isset($coll_modules) && $coll_modules != [])
+          var arr_modules = {!! $coll_modules->where('parent_id', null)->pluck('code')->toJson() !!};
+      @endif
+    </script>
+    <script src="{{ asset('js/custom.js') }}"></script>
     <script src="{{ asset('js/core/popper.min.js') }}"></script>
     <script src="{{ asset('js/core/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>

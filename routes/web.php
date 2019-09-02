@@ -35,8 +35,19 @@ Route::get('/test', function () {
 Route::group(['middleware' => ['auth']], function() {
     //
     Route::group(['middleware' => ['hasPermission:user']], function() {
-        //
         // Route::get('/test', 'HomeController@index')->name('home');
+        Route::get('/users', 'UserController@index')->name('users');
+
+        Route::group(['middleware' => ['hasPermission:user_update']], function() {
+            Route::get('/users/add', 'UserController@addView')->name('users_add_view');
+            Route::post('/users/add', 'UserController@add')->name('users_add');
+
+            Route::get('/users/edit/{id}', 'UserController@editView')->name('users_edit_view');
+            Route::post('/users/edit/{id}', 'UserController@edit')->name('users_edit');
+
+            Route::get('/users/disable/{id}', 'UserController@disable')->name('users_disable');
+            Route::get('/users/enable/{id}', 'UserController@enable')->name('users_enable');
+        });
     });
 });
 
