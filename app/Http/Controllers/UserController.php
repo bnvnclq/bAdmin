@@ -131,4 +131,26 @@ class UserController extends Controller
         return redirect()->back()->with('message', 'Disabled user id: ' . $request->id);
     }
 
+    public function managePermissionView(Request $request)
+    {
+        $col_modules = \App\MasterModule::get();
+        try
+        {
+            $col_user = User::findOrFail($request->id);
+            return view('user.permission')
+            ->with([
+                'user' => $col_user,
+                'modules' => $col_modules,
+            ]);
+        }catch(\Exception $exc)
+        {
+            return redirect()->route('users')->with('error', 'Invalid user id ');
+        }
+    }
+
+    public function managePermission(Request $request)
+    {
+
+    }
+
 }
