@@ -17,6 +17,6 @@ class hasPermission
      */
     public function handle($request, Closure $next, $str_module)
     {
-        return (User::hasPermission($str_module, Auth::user()->role_id)) ? redirect()->route('home')->with('message', "You don't have permission to that module.") : $next($request);
+        return (User::hasPermission($str_module, Auth::user()->role_id)) ? $next($request) : redirect()->route('home')->with('message', "You don't have permission to that module.");
     }
 }

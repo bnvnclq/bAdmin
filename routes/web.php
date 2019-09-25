@@ -34,20 +34,38 @@ Route::get('/test', function () {
  ********************************************************************************************/
 Route::group(['middleware' => ['auth']], function() {
     //
-    Route::group(['middleware' => ['hasPermission:user']], function() {
+    Route::group(['middleware' => ['hasPermission:users']], function() {
         // Route::get('/test', 'HomeController@index')->name('home');
         Route::get('/users', 'UserController@index')->name('users');
 
-        Route::group(['middleware' => ['hasPermission:user_update']], function() {
-            Route::get('/users/add', 'UserController@addView')->name('users_add_view');
-            Route::post('/users/add', 'UserController@add')->name('users_add');
+        Route::group(['prefix' => 'users', 'middleware' => ['hasPermission:user_update']], function() {
+            Route::get('/add', 'UserController@addView')->name('users_add_view');
+            Route::post('/add', 'UserController@add')->name('users_add');
 
-            Route::get('/users/edit/{id}', 'UserController@editView')->name('users_edit_view');
-            Route::post('/users/edit/{id}', 'UserController@edit')->name('users_edit');
+            Route::get('/edit/{id}', 'UserController@editView')->name('users_edit_view');
+            Route::post('/edit/{id}', 'UserController@edit')->name('users_edit');
 
-            Route::get('/users/disable/{id}', 'UserController@disable')->name('users_disable');
-            Route::get('/users/enable/{id}', 'UserController@enable')->name('users_enable');
+            Route::get('/disable/{id}', 'UserController@disable')->name('users_disable');
+            Route::get('/enable/{id}', 'UserController@enable')->name('users_enable');
         });
+    });
+    
+    Route::group(['prefix' => 'settings', 'middleware' => ['hasPermission:settings']], function() {
+        Route::get('/', 'SettingsController@index')->name('settings');
+            
+        Route::group(['prefix' => 'default-value'], function() {
+            //
+            Route::get('/', 'SettingsController@indexDefaultValue')->name('settings_default_value');
+            Route::post('/', 'SettingsController@saveDefaultValue')->name('settings_default_value_save');
+        });
+
+        
+        Route::group(['prefix' => 'module'], function() {
+            //
+            Route::get('/', 'SettingsController@indexModule')->name('settings_module');
+            Route::post('/', 'SettingsController@saveModule')->name('settings_module_save');
+        });
+        
     });
 });
 

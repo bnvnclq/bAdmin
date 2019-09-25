@@ -18,5 +18,16 @@ class CrefRoleModuleTableSeeder extends Seeder
                     'role_id' => '1',
                     'module_id' => '1',
                 ]);
+                
+        \DB::table('cref_role_module')
+                ->insert([
+                    'role_id' => '1',
+                    'module_id' => '2',
+                ]);
+        \DB::table('cref_role_module')
+                ->insert([
+                    'role_id' => '1',
+                    'module_id' => '3',
+                ]);
     }
 }

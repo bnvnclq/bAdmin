@@ -31,5 +31,14 @@ class MasterModulesTableSeeder extends Seeder
                     'icon_class' => 'fa fa-users',
                     'route_name' => 'users'
                 ]);
+        \DB::table('master_modules')
+                ->insert([
+                    'name' => 'Settings',
+                    'description' => 'Settings',
+                    'code' => 'settings',
+                    'parent_id' => null,
+                    'icon_class' => 'fa fa-cogs',
+                    'route_name' => 'settings'
+                ]);
     }
 }
