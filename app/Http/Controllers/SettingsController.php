@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\MasterModule;
 use App\Settings;
 
 class SettingsController extends Controller
@@ -36,9 +37,9 @@ class SettingsController extends Controller
     public function indexModule(Request $request)
     {
         $settings = new Settings();
-        return view('settings.default-value.index')
+        return view('settings.module.index')
                 ->with([
-                    'arr_modules' => $settings->getAllModule(),
+                    'arr_modules' => MasterModule::all(),
                 ]);
     }
 

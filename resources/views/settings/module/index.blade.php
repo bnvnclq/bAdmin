@@ -27,7 +27,7 @@
                                             <tr>
                                                 <td>{{$module->name}}</td>
                                                 <td>{{$module->code}}</td>
-                                                <td><input type="text" name="key[{{$config->key}}]" id="key[{{$config->key}}]" value="{{$config->value}}" class="form-control"></td>
+                                                <td><input type="text" name="key[{{$module->id}}]" id="key[{{$module->id}}]" value="{{$module->icon_class}}" class="form-control"></td>
                                             </tr>
                                         @empty
                                             <tr>
