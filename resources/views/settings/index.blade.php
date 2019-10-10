@@ -30,7 +30,7 @@
                         <h5 class="card-title"><i class="fa fa-users"></i> User Types</h5>
                     </div>
                     <div class="card-body">
-                        <a href="">Manage</a>
+                        <a href="{{route('settings_user_types')}}">Manage</a>
                     </div>
                 </div>
             </div>

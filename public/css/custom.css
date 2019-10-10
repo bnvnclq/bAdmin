@@ -15,3 +15,39 @@
 .my-float{
 	margin-top:22px;
 }
+
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-primary,
+.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-primary {
+  color: #fff;
+  background: var(--orange);
+}
+
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-info,
+.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-info {
+  background: var(--info);
+  color: #fff;
+}
+
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-success,
+.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-success {
+  background: var(--success);
+  color: #fff;
+}
+
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-warning,
+.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-warning {
+  background: var(--warning);
+  color: #fff;
+}
+
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-danger,
+.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-danger {
+  background: var(--danger);
+  color: #fff;
+}
+
+.bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-secondary,
+.bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-secondary {
+  background: var(--secondary);
+  color: #fff;
+}

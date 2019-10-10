@@ -33,6 +33,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/paper-dashboard.css?v=2.0.0') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap-switch.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
     
     <!-- JQuery -->
@@ -205,7 +206,6 @@
           var arr_modules = {!! $coll_modules->where('parent_id', null)->pluck('code')->toJson() !!};
       @endif
     </script>
-    <script src="{{ asset('js/custom.js') }}"></script>
     <script src="{{ asset('js/core/popper.min.js') }}"></script>
     <script src="{{ asset('js/core/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
@@ -218,5 +218,7 @@
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="{{ asset('js/paper-dashboard.min.js?v=2.0.0') }}" type="text/javascript"></script>
     
+    <script src="{{ asset('js/bootstrap-switch.min.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
 </body>
 </html>

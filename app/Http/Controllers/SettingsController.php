@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\MasterModule;
+use App\MasterRole;
 use App\Settings;
 
 class SettingsController extends Controller
@@ -36,7 +37,6 @@ class SettingsController extends Controller
 
     public function indexModule(Request $request)
     {
-        $settings = new Settings();
         return view('settings.module.index')
                 ->with([
                     'arr_modules' => MasterModule::all(),
@@ -45,5 +45,38 @@ class SettingsController extends Controller
 
     public function saveModule(Request $request)
     {
+        foreach($request->key as $int_id => $str_module_class)
+        {
+            $module = MasterModule::find($int_id);
+            $module->icon_class = $str_module_class;
+            $module->update();
+        }
+        return redirect()->back()->with('success', 'Successfully saved.');
     }
+
+    public function indexUserTypes(Request $request)
+    {
+        return view('settings.user-types.index')
+                ->with([
+                    'arr_user_types' => MasterRole::all(),
+                ]);
+    }
+
+    public function editUserTypes(Request $request)
+    {
+        $role = MasterRole::find($request->id);
+        $role_access = $role->getModuleAccess($request->id);
+        return view('settings.user-types.edit')
+                ->with([
+                    'arr_user_type' => $role,
+                    'arr_modules' => MasterModule::all(),
+                    'arr_modules_access' => $role_access
+                ]);
+    }
+
+    public function updateUserTypes(Request $request)
+    {
+        
+    }
+
 }

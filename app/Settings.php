@@ -17,8 +17,4 @@ class Settings extends Model
     {
         return DB::table('list_config')->where('key', $str_key)->update(['value' => $mix_value]);
     }
-    public function getAllModule()
-    {
-        return DB::table('list_config')->get();
-    }
 }

@@ -59,11 +59,20 @@ Route::group(['middleware' => ['auth']], function() {
             Route::post('/', 'SettingsController@saveDefaultValue')->name('settings_default_value_save');
         });
 
-        
         Route::group(['prefix' => 'module'], function() {
             //
             Route::get('/', 'SettingsController@indexModule')->name('settings_module');
             Route::post('/', 'SettingsController@saveModule')->name('settings_module_save');
+        });
+        
+        
+        Route::group(['prefix' => 'user-types'], function() {
+            //
+            
+            Route::get('/', 'SettingsController@indexUserTypes')->name('settings_user_types');
+            Route::get('/{id}', 'SettingsController@editUserTypes')->name('settings_user_types_edit');
+            Route::post('/{id}', 'SettingsController@updateUserTypes')->name('settings_user_types_save');
+            
         });
         
     });

@@ -24,9 +24,9 @@ class MasterModulesTableSeeder extends Seeder
                 ]);
         \DB::table('master_modules')
                 ->insert([
-                    'name' => 'Update Users',
+                    'name' => 'Users - Update',
                     'description' => 'User add/edit/delete permission',
-                    'code' => 'user_update',
+                    'code' => 'users_update',
                     'parent_id' => '1',
                     'icon_class' => 'fa fa-users',
                     'route_name' => 'users'
