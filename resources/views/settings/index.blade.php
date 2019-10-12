@@ -27,7 +27,7 @@
             <div class="col-lg-3">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title"><i class="fa fa-users"></i> User Types</h5>
+                        <h5 class="card-title"><i class="fa fa-users"></i> User Roles</h5>
                     </div>
                     <div class="card-body">
                         <a href="{{route('settings_user_types')}}">Manage</a>

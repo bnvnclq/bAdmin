@@ -68,12 +68,14 @@
                   </a>
                 </li>
                 @foreach ($coll_modules as $module)
-                  <li class="nav_links" id="{{ 'nav_'.$module->code }}">
-                    <a href="{{ route($module->route_name) }}" title="{{ $module->description }}">
-                      <i class="{{$module->icon_class}}"></i>
-                      <p>{{ $module->name }}</p>
-                    </a>
-                  </li>
+                  @if ($module->parent_id == null)
+                    <li class="nav_links" id="{{ 'nav_'.$module->code }}">
+                      <a href="{{ route($module->route_name) }}" title="{{ $module->description }}">
+                        <i class="{{$module->icon_class}}"></i>
+                        <p>{{ $module->name }}</p>
+                      </a>
+                    </li>
+                  @endif
                 @endforeach          
               </ul>
             </div>

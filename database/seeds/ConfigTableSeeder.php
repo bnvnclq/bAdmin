@@ -15,8 +15,8 @@ class ConfigTableSeeder extends Seeder
         \DB::table('list_config')->delete();
         \DB::table('list_config')
                 ->insert([
-                    'key' => 'refresh_time_permission',
-                    'value' => 300,
+                    'key' => 'sample_config',
+                    'value' => 999,
                 ]);
     }
 }

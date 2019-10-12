@@ -19,4 +19,13 @@ class MasterRole extends Model
                 ->where('crm.role_id', $int_id)
                 ->get();
     }
+
+    public static function deleteModuleAccessByRoleID($int_id)
+    {
+        return DB::table('cref_role_module')
+                ->where('role_id', $int_id)
+                ->delete();
+    }
+
+    
 }

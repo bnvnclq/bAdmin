@@ -38,7 +38,7 @@ Route::group(['middleware' => ['auth']], function() {
         // Route::get('/test', 'HomeController@index')->name('home');
         Route::get('/users', 'UserController@index')->name('users');
 
-        Route::group(['prefix' => 'users', 'middleware' => ['hasPermission:user_update']], function() {
+        Route::group(['prefix' => 'users', 'middleware' => ['hasPermission:users_update']], function() {
             Route::get('/add', 'UserController@addView')->name('users_add_view');
             Route::post('/add', 'UserController@add')->name('users_add');
 
@@ -54,21 +54,17 @@ Route::group(['middleware' => ['auth']], function() {
         Route::get('/', 'SettingsController@index')->name('settings');
             
         Route::group(['prefix' => 'default-value'], function() {
-            //
             Route::get('/', 'SettingsController@indexDefaultValue')->name('settings_default_value');
             Route::post('/', 'SettingsController@saveDefaultValue')->name('settings_default_value_save');
         });
 
         Route::group(['prefix' => 'module'], function() {
-            //
             Route::get('/', 'SettingsController@indexModule')->name('settings_module');
             Route::post('/', 'SettingsController@saveModule')->name('settings_module_save');
         });
         
         
         Route::group(['prefix' => 'user-types'], function() {
-            //
-            
             Route::get('/', 'SettingsController@indexUserTypes')->name('settings_user_types');
             Route::get('/{id}', 'SettingsController@editUserTypes')->name('settings_user_types_edit');
             Route::post('/{id}', 'SettingsController@updateUserTypes')->name('settings_user_types_save');
