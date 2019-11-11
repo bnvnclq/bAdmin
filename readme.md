@@ -12,7 +12,7 @@ This project was made by [Bien Laqui](http://bienlaqui.tk)
 
  - Laravel Auth - using 'username' field
  - Basic migration (see migration files)
-    - User accounts
+    - User accounts (Username: admin - Password: admin)
     - User roles
     - Modules
     - Config table
