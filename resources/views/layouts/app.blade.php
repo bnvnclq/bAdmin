@@ -130,7 +130,7 @@
                         </p>
                       </a>
                       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Change Password</a>
+                        <a class="dropdown-item" href="{{ route('change_password_view') }}">Change Password</a>
                       </div>
                     </li>
                     <li class="nav-item">
@@ -169,6 +169,7 @@
                     {{ session('error') }}
                 </div>
             @endif
+            
 
             @yield('content')
           </div>

@@ -25,6 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/test', function () {
     return view('welcome');
 })->middleware(['hasPermission:user']);
+
 /********************************************************************************************
  * ******************************************************************************************
  * 
@@ -33,7 +34,15 @@ Route::get('/test', function () {
  * ******************************************************************************************
  ********************************************************************************************/
 Route::group(['middleware' => ['auth']], function() {
-    //
+    
+    //PROFILE ROUTES
+    Route::group(['prefix' => 'profile'], function() {
+        Route::get('change_password', 'ProfileController@viewChangePassword')->name('change_password_view');
+        Route::post('change_password', 'ProfileController@changePassword')->name('change_password');
+    });
+    
+
+    //USERS ROUTES
     Route::group(['middleware' => ['hasPermission:users']], function() {
         // Route::get('/test', 'HomeController@index')->name('home');
         Route::get('/users', 'UserController@index')->name('users');
@@ -50,6 +59,8 @@ Route::group(['middleware' => ['auth']], function() {
         });
     });
     
+
+    //SETTINGS ROUTES
     Route::group(['prefix' => 'settings', 'middleware' => ['hasPermission:settings']], function() {
         Route::get('/', 'SettingsController@index')->name('settings');
             
