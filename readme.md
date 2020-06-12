@@ -4,6 +4,11 @@ bAdmin is an admin panel template using Laravel (5.8) + Paper Dashboard by Creat
 
 Feel free to upgrade the laravel version yourself. :)
 
+##Different Laravel Verions
+
+### Laravel per Branch
+`master` - 5.8 Laravel Version
+
 ## About the Developer
 
 This project was made by [Bien Laqui](http://bienlaqui.tk)
