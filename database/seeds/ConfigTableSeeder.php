@@ -18,5 +18,10 @@ class ConfigTableSeeder extends Seeder
                     'key' => 'sample_config',
                     'value' => 999,
                 ]);
+        \DB::table('list_config')
+                ->insert([
+                    'key' => 'logo_address',
+                    'value' => "null",
+                ]);
     }
 }

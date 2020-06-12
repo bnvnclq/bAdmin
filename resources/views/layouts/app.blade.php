@@ -49,14 +49,15 @@
             <div class="logo">
               <a href="http://www.bienlaqui.tk" class="simple-text logo-mini">
                 <div class="logo-image-small">
-                  <img src="../assets/img/logo-small.png">
+                  @if ($logo_address == "null")
+                    <img src="{{url('logo_100x.png')}}">
+                  @else
+                    <img src="{!!html_entity_decode($logo_address)!!}">
+                  @endif
                 </div>
               </a>
               <a href="http://www.bienlaqui.tk" class="simple-text logo-normal">
                 {{ config('app.name', 'bAdmin') }}
-                <!-- <div class="logo-image-big">
-                  <img src="../assets/img/logo-big.png">
-                </div> -->
               </a>
             </div>
             <div class="sidebar-wrapper">

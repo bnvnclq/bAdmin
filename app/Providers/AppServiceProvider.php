@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\User;
+use App\Settings;
 use Auth;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
@@ -32,8 +33,10 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*', function ($view) 
         {
             $user = new User();
+            $settings = new Settings();
             $view->with([
                 'coll_modules' => $user->getAllPermission(Auth::user()->role_id ?? 0),
+                'logo_address' => $settings->getConfig('logo_address')->value ?? "",
                 ]);    
         });
     }

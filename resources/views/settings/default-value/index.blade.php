@@ -14,6 +14,7 @@
                         </div>
                         <div class="card-body">
                             <div class="">
+                                <span><i>Empty values will be changed to "null" after saving.</i></span>
                                 <table class="table table-sm table-hover">
                                     <thead>
                                         <tr>
