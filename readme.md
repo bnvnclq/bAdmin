@@ -7,7 +7,8 @@ Feel free to upgrade the laravel version yourself. :)
 ##Different Laravel Verions
 
 ### Laravel per Branch
-`master` - 5.8 Laravel Version
+`master` - 7 Laravel Version
+`bAdmin5_8` - 5.8 Laravel Version
 
 ## About the Developer
 
