@@ -7,6 +7,7 @@ use App\Settings;
 use Auth;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Pagination\Paginator;
 use View;
 
 class AppServiceProvider extends ServiceProvider
@@ -29,6 +30,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        
+        // Paginator::useBootstrap();
+
         Schema::defaultStringLength(191);
         view()->composer('*', function ($view) 
         {
