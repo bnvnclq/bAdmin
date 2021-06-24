@@ -8,7 +8,8 @@ Feel free to upgrade the laravel version yourself. :)
 
 ### Laravel per Branch
 
-- `master` - Laravel
+- `master` - Latest Update
+- `bAdmin8` - Laravel 8
 - `bAdmin7` - Laravel 7
 - `bAdmin5_8` - Laravel 5.8
 
